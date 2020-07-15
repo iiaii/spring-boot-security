@@ -1,4 +1,4 @@
-/* Copyright (c) 2020 ZUM Internet, Inc.
+package me.iiaii.springbootsecurity.domain.account;/* Copyright (c) 2020 ZUM Internet, Inc.
  * All right reserved.
  * http://www.zum.com
  * This software is the confidential and proprietary information of ZUM
@@ -11,13 +11,11 @@
  * ------------------       --------------            ------------------
  *   iiaii                2020-07-15
  */
-package me.iiaii.springbootsecurity;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Configuration
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+import java.util.Optional;
 
-
+public interface AccountRepository extends JpaRepository<Account, Long> {
+    Optional<Account> findByUsername(String username);
 }
